@@ -39,3 +39,5 @@ Once it sorts all that out, the actual scans are ran using await and asynchio.ga
 
 ## 🧠Understanding The Report
 After all the scans are done, it prints a summary of the findings, sorted by severity. **High** severity findings indicate vulnerabilities that can lead to extreme consequences for the application, its data, or its users. **Medium** severity findings indicate vulnerabilities that are significant, but require more specific conditions or chained exploits to achieve a high impact (even though they are still bad). **Low** severity findings indicate vulnerabilities point to minor security weaknesses, best practice violations, or configurations that don't pose a direct threat but could contribute to a bigger attack surface. **Informational** findings aren't vulnerabilities but provide penetration testers valuable information during the reconnaissance phase. 
+
+***See output and analysis in the "Reports and Analysis" folder above.***
