@@ -11,12 +11,15 @@ If you don't have them downloaded, you can run the command "pip install httpx be
 The program first takes in arguments (url, verbose flag, login details):
 
 **SCAN REGULAR:**
+
   python vulnerabilityScanner.py -u <some url starting with http/https>
     
 **SCAN WITH VERBOSE:**
+
   python vulnerabilityScanner.py -u <some url starting with http/https> --verbose
     
 **SCAN AN AUTHENTICATED AREA (if you have credentials):**
+
   python vulnerabilityScanner.py -u <some url starting with http/https> \
         --login-url <url for login> \
         --username <username> \
