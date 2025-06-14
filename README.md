@@ -9,10 +9,13 @@ If you don't have them downloaded, you can run the command "pip install httpx be
 
 # 🤖How It Works
 The program first takes in arguments (url, verbose flag, login details):
+
 **SCAN REGULAR:**
     python vulnerabilityScanner.py -u <some url starting with http/https>
+    
 **SCAN WITH VERBOSE:**
     python vulnerabilityScanner.py -u <some url starting with http/https> --verbose
+    
 **SCAN AN AUTHENTICATED AREA (if you have credentials):**
     python vulnerabilityScanner.py -u <some url starting with http/https> \
         --login-url <url for login> \
@@ -20,6 +23,7 @@ The program first takes in arguments (url, verbose flag, login details):
         --password <password> \
         --login-data "user={username}&password={password}&login=submit"
         (you can also use verbose for this by just adding --verbose at the end)
+        
 ***Remember to only use scanning tools for places you have permission to do so.***
 
 It parses them, and makes sure the url is valid (either starts with http:// or https://). Then, an http.AsynchClient instance is initialized. This is super important to the program because it automatically handles session cookies, so if you want to do an authenticated scan when you have login credentials, you can. If login arguments are provided, it calls the performLogin function. If that function fails, it'll just try a normal scan.
