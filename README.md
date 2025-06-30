@@ -29,7 +29,7 @@ The program first takes in arguments (url, verbose flag, login details):
         
 ### ***Remember to only use scanning tools for places you have permission to do so.***
 
-It parses the arguments, and makes sure the url is valid (either starts with http:// or https://). Then, an http.AsynchClient instance is initialized. This is super important to the program because it automatically handles session cookies, so if you want to do an authenticated scan when you have login credentials, you can. If login arguments are provided, it calls the performLogin function. If that function fails, it'll just try a normal scan.
+It parses the arguments, and makes sure the url is valid (either starts with http:// or https://). Then, an httpx.AsynchClient instance is initialized. This is super important to the program because it automatically handles session cookies, so if you want to do an authenticated scan when you have login credentials, you can. If login arguments are provided, it calls the performLogin function. If that function fails, it'll just try a normal scan.
 
 Once it sorts all that out, the actual scans are ran using await and asynchio.gather(). This way, other functions can be ran while one scanner waits for a network response. once a response is recieved, the scanning can continue. The scanner runs the following scanning functions:
   - **scanInfoGathering:** Makes a request to the target url and examines HTTP response headers for server headers, security headers, cookie flags, robots.txt, and sitemap.xml.
