@@ -5,6 +5,7 @@ vulnerabilityScanner.py is an asynchronous web vulnerability scanner written in 
 First, donwload vulnerabilityScanner.py and make sure you have the following libraries downloaded (and python):
   -  httpx
   -  beautifulsoup4
+
 If you don't have them downloaded, you can run the command "pip install httpx beautifulsoup4" in the command line to install them.
 
 # 🤖How It Works
