@@ -1,4 +1,4 @@
-# 🔎VulerabilityScanner
+# 🔎VulnerabilityScanner
 vulnerabilityScanner.py is an asynchronous web vulnerability scanner written in python -- like a homemade version of Nikto. It exposes common web vulnerabilities such as SQL injections, Cross-Site Scripting (XSS), security misconfigurations, sensitive file paths, and more. It also gathers information about the target like server banners and headers that can be useful in the reconnaissance stage of penetration testing, and relates them to CVE reports using the NIST CVE API. **Do not use vulnerabilityScanner.py on sources you don't have permission to use it on.**
 
 ## 🛠️Setup
