@@ -1,0 +1,392 @@
+
+--------------------------------------------------
+Starting Web Vulnerability Scan for: http://testphp.vulnweb.com
+Rate Limit Delay: 0.1 seconds per request
+--------------------------------------------------
+
+
+[+] Running Information Gathering for: http://testphp.vulnweb.com
+
+[+] Running NVD Scan...
+    [!] Found 17 potential CVEs for php 5.6.40
+
+[+] Running XSS Scan for: http://testphp.vulnweb.com
+
+[+] Running SQL Injection Scan for: http://testphp.vulnweb.com
+
+[+] Running Security Misconfiguration Scan for: http://testphp.vulnweb.com
+
+Scan finished.
+
+[!!!!] Found 33 potential issues or information disclosures. [!!!!]
+
+
+==================== Main Vulnerability Report ====================
+
+--- Finding 1 ---
+Type: SQL Injection (Error-Based - MySQL)
+Severity: High
+Description: Potential SQL Injection detected in POST parameter 'searchFor'. Detected MySQL error.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: '''
+Error pattern: 'SQL syntax.*MySQL' found.
+------------------------------
+
+--- Finding 2 ---
+Type: Security Misconfiguration
+Severity: High
+Description: Directory listing enabled for: admin/. This can expose sensitive files.
+URL: http://testphp.vulnweb.com/admin/
+Evidence:
+HTTP Status: 200
+Content: Directory listing detected.
+------------------------------
+
+--- Finding 3 ---
+Type: Security Header Missing
+Severity: Medium
+Description: X-Frame-Options header not found. Site may be vulnerable to Clickjacking.
+URL: http://testphp.vulnweb.com
+Evidence:
+Missing X-Frame-Options header.
+------------------------------
+
+--- Finding 4 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '';alert(1)//' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: ';alert(1)//
+Raw reflection detected.
+------------------------------
+
+--- Finding 5 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '<script>alert('XSS')</script>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: <script>alert('XSS')</script>
+Raw reflection detected.
+------------------------------
+
+--- Finding 6 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '<img src=x onerror=alert('XSS') style=display:none>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: <img src=x onerror=alert('XSS') style=display:none>
+Raw reflection detected.
+------------------------------
+
+--- Finding 7 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '<svg onload=alert('XSS')>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: <svg onload=alert('XSS')>
+Raw reflection detected.
+------------------------------
+
+--- Finding 8 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '"><script>alert('XSS')</script>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: "><script>alert('XSS')</script>
+Raw reflection detected.
+------------------------------
+
+--- Finding 9 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '<body onload=alert('XSS')>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: <body onload=alert('XSS')>
+Raw reflection detected.
+------------------------------
+
+--- Finding 10 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload ''><img src=x onerror=alert('XSS')>' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: '><img src=x onerror=alert('XSS')>
+Raw reflection detected.
+------------------------------
+
+--- Finding 11 ---
+Type: Reflected XSS (POST - Possible)
+Severity: Medium
+Description: XSS payload '<iframe srcdoc="<script>alert('XSS')</script>">' reflected in response for POST parameter 'searchFor', but context uncertain. Manual review recommended.
+URL: http://testphp.vulnweb.com/search.php?test=query
+Evidence:
+Form Action: http://testphp.vulnweb.com/search.php?test=query
+Parameter: searchFor
+Payload: <iframe srcdoc="<script>alert('XSS')</script>">
+Raw reflection detected.
+------------------------------
+
+--- Finding 12 ---
+Type: Security Misconfiguration
+Severity: Medium
+Description: Potentially sensitive file/directory found: login.php. Review for sensitive information.
+URL: http://testphp.vulnweb.com/login.php
+Evidence:
+HTTP Status: 200
+First 200 chars: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/main_dynamic_template.dwt.php" codeOutsideHTMLIsLoc...
+------------------------------
+
+--- Finding 13 ---
+Type: Security Header Missing
+Severity: Low
+Description: Content-Security-Policy (CSP) header not found. This can increase XSS risk.
+URL: http://testphp.vulnweb.com
+Evidence:
+Missing CSP header.
+------------------------------
+
+--- Finding 14 ---
+Type: Connectivity
+Severity: Informational
+Description: Target URL is reachable and returned HTTP 200 OK.
+URL: http://testphp.vulnweb.com
+Evidence:
+HTTP Status: 200
+------------------------------
+
+--- Finding 15 ---
+Type: Information Disclosure
+Severity: Informational
+Description: Server banner disclosed: nginx/1.19.0
+URL: http://testphp.vulnweb.com
+Evidence:
+Header: Server: nginx/1.19.0
+------------------------------
+
+--- Finding 16 ---
+Type: Information Disclosure
+Severity: Informational
+Description: X-Powered-By header disclosed: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+URL: http://testphp.vulnweb.com
+Evidence:
+Header: X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+------------------------------
+
+
+==================== Associated CVE Report =======================
+
+--- CVE Finding 1 ---
+Type: Known Vulnerability (CVE)
+Severity: Critical
+Description: The version 5.6.40 of php is associated with CVE-2017-8923.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2017-8923
+Severity: CRITICAL
+Description: The zend_string_extend function in Zend/zend_string.h in PHP through 7.1.5 does not prevent changes to string objects that result in a negative length, which allows remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact by leveraging a script's use of .= with a long string.
+------------------------------
+
+--- CVE Finding 2 ---
+Type: Known Vulnerability (CVE)
+Severity: Critical
+Description: The version 5.6.40 of php is associated with CVE-2019-9641.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2019-9641
+Severity: CRITICAL
+Description: An issue was discovered in the EXIF component in PHP before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. There is an uninitialized read in exif_process_IFD_in_TIFF.
+------------------------------
+
+--- CVE Finding 3 ---
+Type: Known Vulnerability (CVE)
+Severity: High
+Description: The version 5.6.40 of php is associated with CVE-2017-9229.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2017-9229
+Severity: HIGH
+Description: An issue was discovered in Oniguruma 6.2.0, as used in Oniguruma-mod in Ruby through 2.4.1 and mbstring in PHP through 7.1.5. A SIGSEGV occurs in left_adjust_char_head() during regular expression compilation. Invalid handling of reg->dmax in forward_search_range() could result in an invalid pointer dereference, normally as an immediate denial-of-service condition.
+------------------------------
+
+--- CVE Finding 4 ---
+Type: Known Vulnerability (CVE)
+Severity: High
+Description: The version 5.6.40 of php is associated with CVE-2019-9638.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2019-9638
+Severity: HIGH
+Description: An issue was discovered in the EXIF component in PHP before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. There is an uninitialized read in exif_process_IFD_in_MAKERNOTE because of mishandling the maker_note->offset relationship to value_len.
+------------------------------
+
+--- CVE Finding 5 ---
+Type: Known Vulnerability (CVE)
+Severity: High
+Description: The version 5.6.40 of php is associated with CVE-2019-9639.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2019-9639
+Severity: HIGH
+Description: An issue was discovered in the EXIF component in PHP before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. There is an uninitialized read in exif_process_IFD_in_MAKERNOTE because of mishandling the data_len variable.
+------------------------------
+
+--- CVE Finding 6 ---
+Type: Known Vulnerability (CVE)
+Severity: High
+Description: The version 5.6.40 of php is associated with CVE-2020-11579.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2020-11579
+Severity: HIGH
+Description: An issue was discovered in Chadha PHPKB 9.0 Enterprise Edition. installer/test-connection.php (part of the installation process) allows a remote unauthenticated attacker to disclose local files on hosts running PHP before 7.2.16, or on hosts where the MySQL ALLOW LOCAL DATA INFILE option is enabled.
+------------------------------
+
+--- CVE Finding 7 ---
+Type: Known Vulnerability (CVE)
+Severity: Medium
+Description: The version 5.6.40 of php is associated with CVE-2022-31629.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2022-31629
+Severity: MEDIUM
+Description: In PHP versions before 7.4.31, 8.0.24 and 8.1.11, the vulnerability enables network and same-site attackers to set a standard insecure cookie in the victim's browser which is treated as a `__Host-` or `__Secure-` cookie by PHP applications.
+------------------------------
+
+--- CVE Finding 8 ---
+Type: Known Vulnerability (CVE)
+Severity: Medium
+Description: The version 5.6.40 of php is associated with CVE-2022-4900.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2022-4900
+Severity: MEDIUM
+Description: A vulnerability was found in PHP where setting the environment variable PHP_CLI_SERVER_WORKERS to a large value leads to a heap buffer overflow.
+------------------------------
+
+--- CVE Finding 9 ---
+Type: Known Vulnerability (CVE)
+Severity: Medium
+Description: The version 5.6.40 of php is associated with CVE-2024-25117.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2024-25117
+Severity: MEDIUM
+Description: php-svg-lib is a scalable vector graphics (SVG) file parsing/rendering library. Prior to version 0.5.2, php-svg-lib fails to validate that font-family doesn't contain a PHAR url, which might leads to RCE on PHP < 8.0, and doesn't validate if external references are allowed. This might leads to bypass of restrictions or RCE on projects that are using it, if they do not strictly revalidate the fontName that is passed by php-svg-lib. The `Style::fromAttributes(`), or the `Style::parseCssStyle()` should check the content of the `font-family` and prevents it to use a PHAR url, to avoid passing an invalid and dangerous `fontName` value to other libraries. The same check as done in the `Style::fromStyleSheets` might be reused. Libraries using this library as a dependency might be vulnerable to some bypass of restrictions, or even remote code execution, if they do not double check the value of the `fontName` that is passed by php-svg-lib. Version 0.5.2 contains a fix for this issue.
+------------------------------
+
+--- CVE Finding 10 ---
+Type: Known Vulnerability (CVE)
+Severity: Low
+Description: The version 5.6.40 of php is associated with CVE-2022-31628.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2022-31628
+Severity: LOW
+Description: In PHP versions before 7.4.31, 8.0.24 and 8.1.11, the phar uncompressor code would recursively uncompress "quines" gzip files, resulting in an infinite loop.
+------------------------------
+
+--- CVE Finding 11 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2017-7272.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2017-7272
+Severity: UNKNOWN
+Description: PHP through 7.1.11 enables potential SSRF in applications that accept an fsockopen or pfsockopen hostname argument with an expectation that the port number is constrained. Because a :port syntax is recognized, fsockopen will use the port number that is specified in the hostname argument, instead of the port number in the second argument of the function.
+------------------------------
+
+--- CVE Finding 12 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2017-7963.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2017-7963
+Severity: UNKNOWN
+Description: The GNU Multiple Precision Arithmetic Library (GMP) interfaces for PHP through 7.1.4 allow attackers to cause a denial of service (memory consumption and application crash) via operations on long strings. NOTE: the vendor disputes this, stating "There is no security issue here, because GMP safely aborts in case of an OOM condition. The only attack vector here is denial of service. However, if you allow attacker-controlled, unbounded allocations you have a DoS vector regardless of GMP's OOM behavior.
+------------------------------
+
+--- CVE Finding 13 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2017-9225.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2017-9225
+Severity: UNKNOWN
+Description: An issue was discovered in Oniguruma 6.2.0, as used in Oniguruma-mod in Ruby through 2.4.1 and mbstring in PHP through 7.1.5. A stack out-of-bounds write in onigenc_unicode_get_case_fold_codes_by_str() occurs during regular expression compilation. Code point 0xFFFFFFFF is not properly handled in unicode_unfold_key(). A malformed regular expression could result in 4 bytes being written off the end of a stack buffer of expand_case_fold_string() during the call to onigenc_unicode_get_case_fold_codes_by_str(), a typical stack buffer overflow.
+------------------------------
+
+--- CVE Finding 14 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2015-9253.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2015-9253
+Severity: UNKNOWN
+Description: An issue was discovered in PHP 7.3.x before 7.3.0alpha3, 7.2.x before 7.2.8, and before 7.1.20. The php-fpm master process restarts a child process in an endless loop when using program execution functions (e.g., passthru, exec, shell_exec, or system) with a non-blocking STDIN stream, causing this master process to consume 100% of the CPU, and consume disk space with a large volume of error logs, as demonstrated by an attack by a customer of a shared-hosting facility.
+------------------------------
+
+--- CVE Finding 15 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2018-19395.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2018-19395
+Severity: UNKNOWN
+Description: ext/standard/var.c in PHP 5.x through 7.1.24 on Windows allows attackers to cause a denial of service (NULL pointer dereference and application crash) because com and com_safearray_proxy return NULL in com_properties_get in ext/com_dotnet/com_handlers.c, as demonstrated by a serialize call on COM("WScript.Shell").
+------------------------------
+
+--- CVE Finding 16 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2018-19396.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2018-19396
+Severity: UNKNOWN
+Description: ext/standard/var_unserializer.c in PHP 5.x through 7.1.24 allows attackers to cause a denial of service (application crash) via an unserialize call for the com, dotnet, or variant class.
+------------------------------
+
+--- CVE Finding 17 ---
+Type: Known Vulnerability (CVE)
+Severity: Unknown
+Description: The version 5.6.40 of php is associated with CVE-2019-9637.
+Technology URL: http://testphp.vulnweb.com
+Evidence:
+CVE: CVE-2019-9637
+Severity: UNKNOWN
+Description: An issue was discovered in PHP before 7.1.27, 7.2.x before 7.2.16, and 7.3.x before 7.3.3. Due to the way rename() across filesystems is implemented, it is possible that file being renamed is briefly available with wrong permissions while the rename is ongoing, thus enabling unauthorized users to access the data.
+------------------------------
+
+
+=========================== End Report ============================
