@@ -1,27 +1,26 @@
-# 🔎VulnerabilityScanner
-vulnerabilityScanner.py is an asynchronous web vulnerability scanner written in python -- like a homemade version of Nikto. It exposes common web vulnerabilities such as SQL injections, Cross-Site Scripting (XSS), security misconfigurations, sensitive file paths, and more. It also gathers information about the target like server banners and headers that can be useful in the reconnaissance stage of penetration testing, and relates them to CVE reports using the NIST CVE API. **Do not use vulnerabilityScanner.py on sources you don't have permission to use it on.**
+# 🕷️SpiderScan
+SpiderScan is an asynchronous web vulnerability scanner written in python -- like a homemade version of Nikto. It exposes common web vulnerabilities such as SQL injections, Cross-Site Scripting (XSS), security misconfigurations, sensitive file paths, and more. It also gathers information about the target like server banners and headers that can be useful in the reconnaissance stage of penetration testing, and relates them to CVE reports using the NIST CVE API. **Do not use SpiderScan on sources you don't have permission to use it on.**
 
-## 🛠️Setup
-First, donwload vulnerabilityScanner.py and make sure you have the following libraries downloaded (and python):
-  -  httpx
-  -  beautifulsoup4
+## 🛠️Setup and Dependencies
+First, download SpiderScan with the following command:
+  -  pip install spiderscan
 
-If you don't have them downloaded, you can run the command "pip install httpx beautifulsoup4" in the command line to install them.
+SpiderScan uses the httpx and beautifulsoup4 libraries.
 
 # 🤖How It Works
 The program first takes in arguments (url, verbose flag, login details):
 
 **SCAN REGULAR:**
 
-  python vulnerabilityScanner.py -u <some url starting with http/https>
+  spiderscan -u <some url starting with http/https>
     
 **SCAN WITH VERBOSE:**
 
-   python vulnerabilityScanner.py -u <some url starting with http/https> --verbose
+   spiderscan -u <some url starting with http/https> --verbose
     
 **SCAN AN AUTHENTICATED AREA (if you have credentials):**
 
-   python vulnerabilityScanner.py -u <some url starting with http/https> \
+   spiderscan -u <some url starting with http/https> \
         --login-url <url for login> \
         --username <username> \
         --password <password> \
