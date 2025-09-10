@@ -29,8 +29,8 @@ def addFinding( findings, findingType, severity, description, url, evidence ):
 # Scans the NIST CVE API for a correlating CVE for the current server banner.
 # It uses the virtualMatchString parameter to search for the proper banner and version
 # and creates a url with it. If a CVE is found, it'll add it to the findings list.
-async def scanNVD(  httpClient, detected_server_banners, findings, verbose=False ):
-    print( "\n[+] Running NVD Scan..." )
+async def scanNVD(  httpClient, targetUrl, detected_server_banners, findings, verbose=False ):
+    print( f"\n[+] Running NVD Scan for: {targetUrl}" )
 
     scanned_tech = set()
 
