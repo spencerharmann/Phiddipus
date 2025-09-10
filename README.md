@@ -1,9 +1,9 @@
 # 🕷️Phidippus
-Phidippus is an asynchronous web vulnerability scanner written in python -- like a homemade version of Nikto. It exposes common web vulnerabilities such as SQL injections, Cross-Site Scripting (XSS), security misconfigurations, sensitive file paths, and more. It also gathers information about the target like server banners and headers that can be useful in the reconnaissance stage of penetration testing, and relates them to CVE reports using the NIST CVE API. **Do not use Phidippus on sources you don't have permission to use it on.**
+Phidippus is an asynchronous web vulnerability scanner written in python. It exposes common web vulnerabilities such as SQL injections, Cross-Site Scripting (XSS), security misconfigurations, sensitive file paths, and more. It also gathers information about the target like server banners and headers that can be useful in the reconnaissance stage of penetration testing, and relates them to CVE reports using the NIST CVE API. **Do not use Phidippus on sources you don't have permission to use it on.**
 
 ## 🛠️Setup and Dependencies
 First, download Phidippus with the following command:
-  -  pip install Phidippus
+  -  pip install phidippus
 
 Phidippus uses the httpx and beautifulsoup4 libraries.
 
@@ -40,5 +40,3 @@ Once it sorts all that out, the actual scans are ran using await and asynchio.ga
 
 ## 🧠Understanding The Report
 After all the scans are done, it prints a summary of the findings, sorted by severity. **High** severity findings indicate vulnerabilities that can lead to extreme consequences for the application, its data, or its users. **Medium** severity findings indicate vulnerabilities that are significant, but require more specific conditions or chained exploits to achieve a high impact (even though they are still bad). **Low** severity findings indicate vulnerabilities point to minor security weaknesses, best practice violations, or configurations that don't pose a direct threat but could contribute to a bigger attack surface. **Informational** findings aren't vulnerabilities but provide penetration testers valuable information during the reconnaissance phase. CVE reports will be in another section at the bottom with severities and descriptions.
-
-***See output and analysis in the "Reports and Analysis" folder above.***
